@@ -19,7 +19,7 @@ module Business
       raise "No such calendar '#{calendar}'" unless directory
 
       yaml = YAML.load_file(File.join(directory, "#{calendar}.yml"))
-      self.new(holidays: yaml['holidays'], working_days: yaml['working_days'])
+      self.new(:holidays => yaml['holidays'], :working_days => yaml['working_days'])
     end
 
     @lock = Mutex.new
